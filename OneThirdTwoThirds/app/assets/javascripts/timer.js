@@ -1,8 +1,8 @@
-var endDay = new Date('May 24, 2012 11:30:00');
+var endTime = new Date('May 24, 2012 11:30:00');
 
 var countDown = setInterval(function(){
     var currentDate = new Date();
-    var daysdecimal = (endDay - currentDate)/(1000*60*60*24);
+    var daysdecimal = (endTime - currentDate)/(1000*60*60*24);
     var daysLeft = Math.floor(daysdecimal);
     var hoursdecimal = (daysdecimal - Math.floor(daysdecimal))*24;
     var hoursLeft = Math.floor(hoursdecimal);
