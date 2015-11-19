@@ -15,33 +15,45 @@
 //= require turbolinks
 //= require_tree .
 //
-// $( function() {
-//   $('checkbox').click( function() {
-//     $(this).toggleClass("completed");
-//   } );
-// } );
 
+// Attempt to get table rows to highlight a color when checkbox is checked for that row. Had trouble getting each checkbox to target it's own row.
+
+// $(document).ready(function(){
+//   function checkboxes(){
+//     $('#complete').click(function(){
+//         if($(this).prop("checked") == true){
+//             $(this).parent("tr").css({"background-color": "lightgreen"});
+//         }
+//         else if($(this).prop("checked") == false){
+//             var thisRow = $(this).closest("tr");
+//             thisRow.toggleClass("completed");
+//         }
+//     });
+//     $('#incomplete').click(function(){
+//         if($(this).prop("checked") == true){
+//             var thisRow = $(this).closest("tr");
+//             thisRow.toggleClass("incompleted");
+//         }
+//         else if($(this).prop("checked") == false){
+//             var thisRow = $(this).closest("tr");
+//             thisRow.toggleClass("incompleted");
+//         }
+//     });
+//   }
+// });
 
 $(document).ready(function(){
-  function checkboxes(){
-    $('#complete').click(function(){
-        if($(this).prop("checked") == true){
-            $(this).parent("tr").css({"background-color": "lightgreen"});
-        }
-        else if($(this).prop("checked") == false){
-            var thisRow = $(this).closest("tr");
-            thisRow.toggleClass("completed");
-        }
+    $( "#hideButton" ).click(function() {
+    $('.createdAt, .createdAtHeader').toggle("slow", function(){
+
     });
-    $('#incomplete').click(function(){
-        if($(this).prop("checked") == true){
-            var thisRow = $(this).closest("tr");
-            thisRow.toggleClass("incompleted");
-        }
-        else if($(this).prop("checked") == false){
-            var thisRow = $(this).closest("tr");
-            thisRow.toggleClass("incompleted");
-        }
+  });
+});
+
+$(document).ready(function(){
+    $( "#hideTimer" ).click(function() {
+    $('.sidebar').toggle("slow", function(){
+
     });
-  }
+  });
 });
