@@ -30,7 +30,8 @@ h2 {
   text-align: left;
 }
 
-#subs {
+.subs {
+  margin-left: 5px;
   border-collapse: collapse;
   width: 90%;
 }

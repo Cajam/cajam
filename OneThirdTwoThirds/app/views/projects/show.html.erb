@@ -8,7 +8,7 @@
 <br>
 <p>Subtasks for <%= @project.title %></p>
 <br>
-  <table id="subs">
+  <table class="subs">
     <tr>
       <th>Subtask</th>
       <th>Description</th>
@@ -23,16 +23,16 @@
         <td class="hours"><%= subtask.subhours %> hours and <%= subtask.subminutes %> minutes</td>
         <% if current_user %>
         <td><%= subtask.created_at %></td>
-        <td class="completeSubtasks"><%= check_box_tag(:complete) %>
+        <td><%= check_box_tag(:complete) %>
           <%= label_tag(:complete, "Complete") %></td>
-        <td class="incompleteSubtasks"><%= check_box_tag(:incomplete) %><%= label_tag(:incomplete, "Incomplete") %></td>
-        <td><%= link_to "Edit", edit_project_subtask_path(@project) %></td>
+        <td><%= check_box_tag(:incomplete) %><%= label_tag(:incomplete, "Incomplete") %></td>
+        <td><%= link_to "Edit", edit_project_subtask_path(@project, subtask) %></td>
         <td><%= link_to "Delete", project_subtask_path(@project, subtask), method: :delete, data: {confirm: "Are you sure you want to delete this?"} %></td>
         <% end %>
       </tr>
     <% end %>
   </table>
-    <p>Total hours<span id="total"><%= @total_hours %></span></p>
+    <p>Total estimated hours: <span id="total"><%= @total_hours %></span></p>
 <br>
 <% if current_user %>
 <%= link_to "New Project", new_project_path %>

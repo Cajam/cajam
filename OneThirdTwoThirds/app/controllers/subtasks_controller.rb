@@ -1,6 +1,6 @@
 class SubtasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def new
     @project = Project.find(params[:project_id])
     @subtask = Subtask.new
@@ -10,6 +10,23 @@ class SubtasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @subtask = @project.subtasks.create!(subtask_params)
     redirect_to project_path(@project)
+  end
+
+  def edit
+    @project = Project.find(params[:project_id])
+    @subtask = @project.subtasks.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @subtask = @project.subtasks.find(params[:id])
+    @subtask.update!(subtask_params)
+
+    if @subtask.update(subtask_params)
+      redirect_to project_path(@project)
+    else
+      render "edit"
+    end
   end
 
   def destroy

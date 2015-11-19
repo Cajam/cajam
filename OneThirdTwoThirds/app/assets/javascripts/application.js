@@ -26,7 +26,7 @@ $(document).ready(function(){
   function checkboxes(){
     $('#complete').click(function(){
         if($(this).prop("checked") == true){
-            $("this").closest("tr").css({"background-color": "lightgreen"});
+            $(this).parent("tr").css({"background-color": "lightgreen"});
         }
         else if($(this).prop("checked") == false){
             var thisRow = $(this).closest("tr");
