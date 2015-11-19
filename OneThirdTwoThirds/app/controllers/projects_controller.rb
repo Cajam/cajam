@@ -25,6 +25,13 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    total = 0
+    # Loops through each of the project subtasks
+    @project.subtasks.each do|task|
+      total += task.subhours * 60
+      total += task.subminutes
+    end
+    @total_hours = "#{total/60} hours and #{total%60} minutes"
   end
 
 

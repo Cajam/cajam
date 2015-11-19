@@ -14,3 +14,34 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//
+// $( function() {
+//   $('checkbox').click( function() {
+//     $(this).toggleClass("completed");
+//   } );
+// } );
+
+
+$(document).ready(function(){
+  function checkboxes(){
+    $('#complete').click(function(){
+        if($(this).prop("checked") == true){
+            $("this").closest("tr").css({"background-color": "lightgreen"});
+        }
+        else if($(this).prop("checked") == false){
+            var thisRow = $(this).closest("tr");
+            thisRow.toggleClass("completed");
+        }
+    });
+    $('#incomplete').click(function(){
+        if($(this).prop("checked") == true){
+            var thisRow = $(this).closest("tr");
+            thisRow.toggleClass("incompleted");
+        }
+        else if($(this).prop("checked") == false){
+            var thisRow = $(this).closest("tr");
+            thisRow.toggleClass("incompleted");
+        }
+    });
+  }
+});

@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: lemonchiffon;
+}
+
+h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.userBar {
+  text-align: left;
+}
+
+#subs {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+.completed {
+  background-color: lightgreen;
+}
+
+.incompleted {
+  background-color: red;
+}
